@@ -52,15 +52,21 @@ def make_order():
 
 def print_garden():
     print("Garden Items :- ")
-    print("Garden Hose for $15 (Use code G1 to add item)", "Soil for $5 a pack (Use code G2 to add item)", "Tools for $30 (Use code G3 to add")
+    print("   Garden Hose for $15 (Use code G1 to add item)")
+    print("   Soil for $5 a pack (Use code G2 to add item)")
+    print("   Tools for $30 (Use code G3 to add)")
 
 def print_indoor():
     print("Indoor Items :- ")
-    print("Couch for $250 (Use code I2 to add item)", "Rug for $85 (Use code I2 to add item)", "Table for $170 (Use code I3 to add")
+    print("   Couch for $250 (Use code I2 to add item)")
+    print("   Rug for $85 (Use code I2 to add item)")
+    print("   Table for $170 (Use code I3 to add")
 
 def print_bathroom():
     print("Bathroom Items:- ")
-    print("Bathroom Mirror for $50 (Use code B1 to add item)", "Bathroom Rug for $20 (Use code B2 to add item)", "Bathroom Curtain for $10 (Use code I3 to add")
+    print("   Bathroom Mirror for $50 (Use code B1 to add item)")
+    print("   Bathroom Rug for $20 (Use code B2 to add item)")
+    print("   Bathroom Curtain for $10 (Use code I3 to add")
 
 
 def main():
