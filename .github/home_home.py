@@ -67,7 +67,19 @@ def main():
     #Home()
     print("Welcome to Home Ideas Center, where all orders include a new home feeling!")
     print("For your new Home space ...")
-    print("Choose one type of garden idea")
+    print("Enter one of the letters to display the options for each catagory")
+    print("    G for Garden Items   ", "   I for Indoor Items   ",   "B for Bathroom Items   ")
+
+    command = input()
+    if command == "G":
+        print(print_garden())
+
+    if command == "I":
+        print(print_indoor())
+
+    if command == "B":
+        print(print_bathroom())
+
 
 
 
