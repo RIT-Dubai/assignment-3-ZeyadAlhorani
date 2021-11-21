@@ -4,6 +4,17 @@ garden_items = {"Garden Hose": ("G1", 15), "Soil": ("G2", 5), "Tools": ("G3", 30
 indoor_items = {"Couch": ("I1", 250), "Rug": ("I2", 85), "Table": ("I3", 170)}
 bathroom_items = {"Bathroom Mirror": ("B1",50), "Bathroom Rug": ("B2", 20), "Bathroom Curtain": ("B3", 10)}
 
+def inputs():
+    command = input()
+    if command == "G":
+        print(print_garden())
+
+
+    if command == "I":
+        print(print_indoor())
+
+    if command == "B":
+        print(print_bathroom())
 
 
 class Home:
@@ -73,7 +84,7 @@ def main():
     #Home()
     print("Welcome to Home Ideas Center, where all orders include a new home feeling!")
     print("For your new Home space ...")
-    print("Enter one of the letters to display the options for each catagory")
+    print(" Choose a letter to display option for each category")
     print("    G for Garden Items   ", "   I for Indoor Items   ",   "B for Bathroom Items   ")
 
     command = input()
@@ -85,6 +96,14 @@ def main():
 
     if command == "B":
         print(print_bathroom())
+
+
+
+
+
+
+
+
 
 
 
