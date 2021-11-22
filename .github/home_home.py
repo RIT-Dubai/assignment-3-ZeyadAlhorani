@@ -50,9 +50,6 @@ def main():
     print("Welcome to Home Ideas Center, where all orders include a new home feeling!")
     print("For your new Home space ...")
 
-
-
-
     def options():
         print(" Choose a letter to display option for each category")
         print("    G for Garden Items   ", "   I for Indoor Items   ",   "B for Bathroom Items   ")
@@ -63,18 +60,42 @@ def main():
 
         while command != "n":
             if command == "G":
-              print_garden()
-            options()
+               print_garden()
+
+            elif command == "G1":
+                price = garden_items["G1"][1]
+                print("   You added Garden Hose to your cart, total is:"   , cart)
+                options()
+
+            elif command == "G2":
+                price = garden_items["G2"][1]
+                cart += price
+                print("   You added Soil to your cart, total is:"   , cart)
+
+            elif command == "G3":
+                price = garden_items["G3"][1]
+                cart =+ price
+                print("   You added Tools to your cart, total is:"   , cart)
+
+            print(cart + 50)
+
+
+            break
+
+        options()
+
 
         while command != "n":
             if command == "I":
-                print_indoor()
-            options()
+                print(print_indoor())
+                options()
+            break
 
         while command != "n":
             if command == "B":
-                print_bathroom()
-            options()
+                print(print_bathroom())
+                options()
+            break
 
 
     options()
