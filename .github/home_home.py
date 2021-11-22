@@ -65,7 +65,8 @@ def main():
             elif command == "G1":
                 price = garden_items["G1"][1]
                 print("   You added Garden Hose to your cart, total is:"   , cart)
-                options()
+                cart += price
+
 
             elif command == "G2":
                 price = garden_items["G2"][1]
@@ -88,13 +89,42 @@ def main():
         while command != "n":
             if command == "I":
                 print(print_indoor())
-                options()
+
+            elif command == "I1":
+                price = indoor_items["I1"][1]
+                print("   You added Couch to your cart, total is:"   , cart)
+                cart += price
+
+            elif command == "I2":
+                price = indoor_items["I2"][1]
+                print("   You added Rug to your cart, total is:"   , cart)
+                cart += price
+
+            elif command == "I3":
+                price = indoor_items["I3"][1]
+                print("   You added Table to your cart, total is:"   , cart)
+                cart += price
             break
+
 
         while command != "n":
             if command == "B":
                 print(print_bathroom())
-                options()
+
+            elif command == "B1":
+                price = bathroom_items["B1"][1]
+                print("   You added Bathroom Mirror to your cart, total is:"   , cart)
+                cart += price
+
+            elif command == "B2":
+                price = bathroom_items["B2"][1]
+                print("   You added Bathroom Rug to your cart, total is:"   , cart)
+                cart += price
+
+            elif command == "B2":
+                price = bathroom_items["B3"][1]
+                print("   You added Bathroom Curtain to your cart, total is:"   , cart)
+                cart += price
             break
 
 
