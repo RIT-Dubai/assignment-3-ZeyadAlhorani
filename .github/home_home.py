@@ -50,6 +50,9 @@ def main():
     print("Welcome to Home Ideas Center, where all orders include a new home feeling!")
     print("For your new Home space ...")
 
+
+
+
     def options():
         print(" Choose a letter to display option for each category")
         print("    G for Garden Items   ", "   I for Indoor Items   ",   "B for Bathroom Items   ")
@@ -57,6 +60,25 @@ def main():
         cart = 0
 
         command = input()
+
+        while command != "n":
+            if command == "G":
+              print_garden()
+            options()
+
+        while command != "n":
+            if command == "I":
+                print_indoor()
+            options()
+
+        while command != "n":
+            if command == "B":
+                print_bathroom()
+            options()
+
+
+    options()
+"""""        
         if command == "G":
            print(print_garden())
            pass
@@ -73,11 +95,12 @@ def main():
 
         elif command == "G1":
             cart += 15
-            print("You added Garden Hose to your cart, total is:", cart)
+            print("***You added Garden Hose to your cart, total is:***", cart)
             options()
 
         elif command == "G2":
-            cart += 5
+            price = garden_items["G2"][1]
+            cart += price
             print("You added Soil to your cart, total is:", cart)
             options()
 
@@ -87,15 +110,16 @@ def main():
             print("You added Tools to your cart, total is:", cart)
             options()
 
+        print(cart + "Base charge",50)
+
     options()
 
 
-"""""
+
     garden_items = {"G1": ("Garden Hose", 15), "G2": ("Soil", 5), "G3": ("Tools", 30)}
     indoor_items = {"I1": ("Couch", 250), "I2": ("Rug", 85), "I3": ("Table", 170)}
     bathroom_items = {"B1": ("Bathroom Mirror",50), "B2": ("Bathroom Rug", 20), "B3": ("Bathroom Curtain", 10)}
 """""
-
 
 
 
