@@ -7,12 +7,12 @@ bathroom_items = {"B1": ("Bathroom Mirror",50), "B2": ("Bathroom Rug", 20), "B3"
 
 class Home:
     # a class that identifies an item
-    __slots__ = ("name", "letter_code", "price")
+    __slots__ = ["name", "letter_code", "price"]
 
     def __init__(self, name, letter_code, price):
-     self.name = " "
-     self.letter_code = " "
-     self.price = " "
+     self.name = name
+     self.letter_code = letter_code
+     self.price = price
 
     garden_items = {"G1": ("Garden Hose", 15), "G2": ("Soil", 5), "G3": ("Tools", 30)}
     indoor_items = {"I1": ("Couch", 250), "I2": ("Rug", 85), "I3": ("Table", 170)}
@@ -22,7 +22,12 @@ class Home:
 
 class Home_Avatar:
     # these dictionaries are only examples for no
-    pass
+    __slots__ = ["garden", "indoor", "bathroom"]
+
+    def __init__(self, garden, indoor, bathroom):
+        self.garden = garden
+        self.bathroom = bathroom
+        self.indoor = indoor
 
 
 
