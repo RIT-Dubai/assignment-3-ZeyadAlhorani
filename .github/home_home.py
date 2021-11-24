@@ -5,8 +5,8 @@ indoor_items = {"I1": ("Couch", 250), "I2": ("Rug", 85), "I3": ("Table", 170)}
 bathroom_items = {"B1": ("Bathroom Mirror",50), "B2": ("Bathroom Rug", 20), "B3": ("Bathroom Curtain", 10)}
 
 
-class Home:
-    # a class that identifies an item
+class Home_category:
+    # a class that identifies the item's state
     __slots__ = ["name", "letter_code", "price"]
 
     def __init__(self, name, letter_code, price):
@@ -14,14 +14,9 @@ class Home:
      self.letter_code = letter_code
      self.price = price
 
-    garden_items = {"G1": ("Garden Hose", 15), "G2": ("Soil", 5), "G3": ("Tools", 30)}
-    indoor_items = {"I1": ("Couch", 250), "I2": ("Rug", 85), "I3": ("Table", 170)}
-    bathroom_items = {"B1": ("Bathroom Mirror",50), "B2": ("Bathroom Rug", 20), "B3": ("Bathroom Curtain", 10)}
 
-
-
-class Home_Avatar:
-    # these dictionaries are only examples for no
+class Home:
+    # basket class
     __slots__ = ["garden", "indoor", "bathroom"]
 
     def __init__(self, garden, indoor, bathroom):
@@ -31,19 +26,23 @@ class Home_Avatar:
 
 
 
+
 def print_garden():
+    # function to print garden items options
     print("Garden Items :- ")
     print("   Garden Hose for $15 (Use code G1 to add item)")
     print("   Soil for $5 a pack (Use code G2 to add item)")
     print("   Tools for $30 (Use code G3 to add)")
 
 def print_indoor():
+    # function to print indoor items options
     print("Indoor Items :- ")
     print("   Couch for $250 (Use code I2 to add item)")
     print("   Rug for $85 (Use code I2 to add item)")
     print("   Table for $170 (Use code I3 to add")
 
 def print_bathroom():
+    # function to print bathroom items options
     print("Bathroom Items:- ")
     print("   Bathroom Mirror for $50 (Use code B1 to add item)")
     print("   Bathroom Rug for $20 (Use code B2 to add item)")
@@ -134,6 +133,7 @@ def main():
 
 
     options()
+
 """""        
         if command == "G":
            print(print_garden())
@@ -176,9 +176,6 @@ def main():
     indoor_items = {"I1": ("Couch", 250), "I2": ("Rug", 85), "I3": ("Table", 170)}
     bathroom_items = {"B1": ("Bathroom Mirror",50), "B2": ("Bathroom Rug", 20), "B3": ("Bathroom Curtain", 10)}
 """""
-
-
-
 
 
 
