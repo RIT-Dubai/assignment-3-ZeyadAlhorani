@@ -67,6 +67,7 @@ def main():
 
     print(" Choose a letter to display option for each category, or Input the code for your wanted item")
     print("    G for Garden Items   ", "   I for Indoor Items   ",   "B for Bathroom Items   ")
+    print("----Enter X to Exit and Receive Invoice---")
 
     command = input()
     cart = 0
@@ -78,19 +79,19 @@ def main():
                 break
 
             elif command in garden_items:
-                if "G1" in garden_items:
+                if command == "G1":
                     g1 = garden_items.get("G1", [1])
                     print(g1)
                     #Home.add_cart(g1)
                     print("   You added Garden Hose to your cart, total is:"   ,)
                     break
 
-                elif "G2" in garden_items:
+                if command == "G2":
                     g2 = garden_items.get("G2", [1])
                     print(g2)
                     print("   You added Soil to your cart, total is:"   , cart)
 
-                elif "G3" in garden_items:
+                if command == "G3":
                     g3 = garden_items.get("G3", [2])
                     print(g3)
                     print("   You added Tools to your cart, total is:"   , cart)
@@ -107,17 +108,17 @@ def main():
                 print(print_indoor())
 
             elif command in indoor_items:
-                if "I1" == indoor_items:
+                if command == "I1":
                     i1 = indoor_items.get("I1", [1])
                     print(i1)
                     print("   You added Couch to your cart, total is:"   , cart)
 
-                if "I2" in indoor_items:
+                elif command == "I2":
                     i2 = indoor_items.get("I2", [2])
                     print(i2)
                     print("   You added Rug to your cart, total is:"   , cart)
 
-                if "I3" == indoor_items:
+                elif command == "I3":
                     i3 = indoor_items.get("I3", [1])
                     print(i3)
                     print("   You added Table to your cart, total is:"   , cart)
@@ -132,17 +133,17 @@ def main():
                 print(print_bathroom())
 
             elif command in bathroom_items:
-                if "B1" in bathroom_items:
+                if command == "B1":
                     b1 = bathroom_items.get("B1", [1])
                     print(b1)
                     print("   You added Bathroom Mirror to your cart, total is:"   , cart)
 
-                if "B2" in bathroom_items:
+                elif command == "B2":
                     b2 = bathroom_items.get("B2", [1])
                     print(b2)
                     print("   You added Bathroom Rug to your cart, total is:"   , cart)
 
-                if "B3" in bathroom_items:
+                elif command == "B3":
                     b3 = bathroom_items.get("B3", [1])
                     print(b3)
                     print("   You added Bathroom Curtain to your cart, total is:"   , cart)
@@ -151,6 +152,10 @@ def main():
         except ValueError:
             print("Item not found")
             continue
+
+    while command == "X":
+        print("Done")
+        break
 
     main()
 
