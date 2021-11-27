@@ -77,18 +77,18 @@ def main():
 
 
             elif command in garden_items:
-                if command == "G1":
+                if "G1" in garden_items:
                     g1 = garden_items.get("G1", [1])
                     print(g1)
                     #Home.add_cart(g1)
                     print("   You added Garden Hose to your cart, total is:"   ,)
 
-                if command == "G2":
+                if "G2" in garden_items:
                     g2 = garden_items.get("G2", [1])
                     print(g2)
                     print("   You added Soil to your cart, total is:"   , cart)
 
-                if command == "G3":
+                if "G3" in garden_items:
                     g3 = garden_items.get("G3", [2])
                     print(g3)
                     print("   You added Tools to your cart, total is:"   , cart)
@@ -106,21 +106,22 @@ def main():
                 print(print_indoor())
 
 
-            elif command == "I1":
-                price = indoor_items["I1"][1]
-                print("   You added Couch to your cart, total is:"   , cart)
-                cart += price
+            elif command in indoor_items:
+                if "I1" == indoor_items:
+                    i1 = indoor_items.get("I1", [1])
+                    print(i1)
+                    print("   You added Couch to your cart, total is:"   , cart)
 
-            elif command == "I2":
-                price = indoor_items["I2"][1]
-                print("   You added Rug to your cart, total is:"   , cart)
-                cart += price
+                if "I2" in indoor_items:
+                    i2 = indoor_items.get("I2", [2])
+                    print(i2)
+                    print("   You added Rug to your cart, total is:"   , cart)
 
-            elif command == "I3":
-                price = indoor_items["I3"][1]
-                print("   You added Table to your cart, total is:"   , cart)
-                cart += price
-            break
+                if "I3" == indoor_items
+                    i3 = indoor_items.get("I3", [1])
+                    print(i3)
+                    print("   You added Table to your cart, total is:"   , cart)
+
         except ValueError:
             print("Item not found")
             continue
