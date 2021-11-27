@@ -58,8 +58,7 @@ def invoice_cart():
 
 def main():
     #Home()
-    print("Welcome to Home Ideas Center, where all orders include a new home feeling!")
-    print("For your new Home space ...")
+
 
     garden_items = {"G1": ("Garden Hose", 15), "G2": ("Soil", 5), "G3": ("Tools", 30)}
     indoor_items = {"I1": ("Couch", 250), "I2": ("Rug", 85), "I3": ("Table", 170)}
@@ -75,7 +74,7 @@ def main():
         try:
             if command == "G":
                print_garden()
-               break
+
 
             elif command in garden_items:
                 g1 = garden_items.get("G1", [1])
@@ -96,7 +95,7 @@ def main():
                 Home.add_cart(command)
                 cart =+ price
                 print("   You added Tools to your cart, total is:"   , cart)
-
+            break
 
         except ValueError:
             print("Item not found")
@@ -107,6 +106,7 @@ def main():
         try:
             if command == "I":
                 print(print_indoor())
+
 
             elif command == "I1":
                 price = indoor_items["I1"][1]
@@ -123,7 +123,8 @@ def main():
                 print("   You added Table to your cart, total is:"   , cart)
                 cart += price
             break
-        except:
+        except ValueError:
+            print("Item not found")
             continue
 
 
@@ -131,6 +132,7 @@ def main():
         try:
             if command == "B":
                 print(print_bathroom())
+
 
             elif command == "B1":
                 price = bathroom_items["B1"][1]
@@ -148,13 +150,13 @@ def main():
                  cart += price
 
             break
-        except:
-            break
-
-
-
+        except ValueError:
+            print("Item not found")
+            continue
 
     main()
 
-
-main()
+if __name__ == '__main__':
+    print("Welcome to Home Ideas Center, where all orders include a new home feeling!")
+    print("For your new Home space ...")
+    main()
