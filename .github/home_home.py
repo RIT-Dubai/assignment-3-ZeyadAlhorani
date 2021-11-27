@@ -1,10 +1,4 @@
 
-
-garden_items = {"G1": ("Garden Hose", 15), "G2": ("Soil", 5), "G3": ("Tools", 30)}
-indoor_items = {"I1": ("Couch", 250), "I2": ("Rug", 85), "I3": ("Table", 170)}
-bathroom_items = {"B1": ("Bathroom Mirror",50), "B2": ("Bathroom Rug", 20), "B3": ("Bathroom Curtain", 10)}
-
-
 class Home_category:
     # a class that identifies the item's state
     __slots__ = ["name", "letter_code", "price"]
@@ -17,13 +11,19 @@ class Home_category:
 
 class Home:
     # basket class
-    __slots__ = ["garden", "indoor", "bathroom"]
+    shopping_cart = []
 
-    def __init__(self, garden, indoor, bathroom):
-        self.garden = garden
-        self.bathroom = bathroom
-        self.indoor = indoor
+    #__slots__ = ["garden", "indoor", "bathroom"]
 
+    #def __init__(self, garden, indoor, bathroom):
+        #self.garden = garden
+        #self.bathroom = bathroom
+        #self.indoor = indoor
+
+    def add_cart(item):
+        shopping_cart = []
+        shopping_cart.append(item)
+        print(shopping_cart, "50")
 
 
 
@@ -48,49 +48,63 @@ def print_bathroom():
     print("   Bathroom Rug for $20 (Use code B2 to add item)")
     print("   Bathroom Curtain for $10 (Use code I3 to add")
 
+def invoice_cart():
+        print("          ----------Invoice----------          ")
+
+
+
+        print("          ----------Invoice----------          ")
+
 
 def main():
     #Home()
     print("Welcome to Home Ideas Center, where all orders include a new home feeling!")
     print("For your new Home space ...")
 
-    def options():
-        print(" Choose a letter to display option for each category")
-        print("    G for Garden Items   ", "   I for Indoor Items   ",   "B for Bathroom Items   ")
+    garden_items = {"G1": ("Garden Hose", 15), "G2": ("Soil", 5), "G3": ("Tools", 30)}
+    indoor_items = {"I1": ("Couch", 250), "I2": ("Rug", 85), "I3": ("Table", 170)}
+    bathroom_items = {"B1": ("Bathroom Mirror",50), "B2": ("Bathroom Rug", 20), "B3": ("Bathroom Curtain", 10)}
 
-        cart = 0
+    print(" Choose a letter to display option for each category")
+    print("    G for Garden Items   ", "   I for Indoor Items   ",   "B for Bathroom Items   ")
 
-        command = input()
+    command = input()
+    cart = 0
 
-        while command != "n":
+    while command != "n":
+        try:
             if command == "G":
                print_garden()
+               break
 
-            elif command == "G1":
-                price = garden_items["G1"][1]
-                print("   You added Garden Hose to your cart, total is:"   , cart)
-                cart += price
+            elif command in garden_items:
+                g1 = garden_items.get("G1", [1])
+                print(g1)
+                #Home.add_cart(g1)
+
+                print("   You added Garden Hose to your cart, total is:"   ,)
 
 
             elif command == "G2":
                 price = garden_items["G2"][1]
+                Home.add_cart(command)
                 cart += price
                 print("   You added Soil to your cart, total is:"   , cart)
 
             elif command == "G3":
                 price = garden_items["G3"][1]
+                Home.add_cart(command)
                 cart =+ price
                 print("   You added Tools to your cart, total is:"   , cart)
 
-            print(cart + 50)
+
+        except ValueError:
+            print("Item not found")
+            continue
 
 
-            break
-
-        options()
-
-
-        while command != "n":
+    while command != "n":
+        try:
             if command == "I":
                 print(print_indoor())
 
@@ -109,9 +123,12 @@ def main():
                 print("   You added Table to your cart, total is:"   , cart)
                 cart += price
             break
+        except:
+            continue
 
 
-        while command != "n":
+    while command != "n":
+        try:
             if command == "B":
                 print(print_bathroom())
 
@@ -126,58 +143,18 @@ def main():
                 cart += price
 
             elif command == "B2":
-                price = bathroom_items["B3"][1]
-                print("   You added Bathroom Curtain to your cart, total is:"   , cart)
-                cart += price
+                 price = bathroom_items["B3"][1]
+                 print("   You added Bathroom Curtain to your cart, total is:"   , cart)
+                 cart += price
+
+            break
+        except:
             break
 
 
-    options()
-
-"""""        
-        if command == "G":
-           print(print_garden())
-           pass
-           options()
-
-        if command == "I":
-            print(print_indoor())
-            options()
-
-        if command == "B":
-            print(print_bathroom())
-            pass
-            options()
-
-        elif command == "G1":
-            cart += 15
-            print("***You added Garden Hose to your cart, total is:***", cart)
-            options()
-
-        elif command == "G2":
-            price = garden_items["G2"][1]
-            cart += price
-            print("You added Soil to your cart, total is:", cart)
-            options()
-
-        elif command == "G3":
-            price = garden_items["G3"][1]
-            cart =+ price
-            print("You added Tools to your cart, total is:", cart)
-            options()
-
-        print(cart + "Base charge",50)
-
-    options()
 
 
-
-    garden_items = {"G1": ("Garden Hose", 15), "G2": ("Soil", 5), "G3": ("Tools", 30)}
-    indoor_items = {"I1": ("Couch", 250), "I2": ("Rug", 85), "I3": ("Table", 170)}
-    bathroom_items = {"B1": ("Bathroom Mirror",50), "B2": ("Bathroom Rug", 20), "B3": ("Bathroom Curtain", 10)}
-"""""
-
-
+    main()
 
 
 main()
