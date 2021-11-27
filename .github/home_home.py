@@ -64,7 +64,7 @@ def main():
     indoor_items = {"I1": ("Couch", 250), "I2": ("Rug", 85), "I3": ("Table", 170)}
     bathroom_items = {"B1": ("Bathroom Mirror",50), "B2": ("Bathroom Rug", 20), "B3": ("Bathroom Curtain", 10)}
 
-    print(" Choose a letter to display option for each category")
+    print(" Choose a letter to display option for each category, or Input the code for your wanted item")
     print("    G for Garden Items   ", "   I for Indoor Items   ",   "B for Bathroom Items   ")
 
     command = input()
@@ -77,24 +77,22 @@ def main():
 
 
             elif command in garden_items:
-                g1 = garden_items.get("G1", [1])
-                print(g1)
-                #Home.add_cart(g1)
+                if command == "G1":
+                    g1 = garden_items.get("G1", [1])
+                    print(g1)
+                    #Home.add_cart(g1)
+                    print("   You added Garden Hose to your cart, total is:"   ,)
 
-                print("   You added Garden Hose to your cart, total is:"   ,)
+                if command == "G2":
+                    g2 = garden_items.get("G2", [1])
+                    print(g2)
+                    print("   You added Soil to your cart, total is:"   , cart)
 
+                if command == "G3":
+                    g3 = garden_items.get("G3", [2])
+                    print(g3)
+                    print("   You added Tools to your cart, total is:"   , cart)
 
-            elif command == "G2":
-                price = garden_items["G2"][1]
-                Home.add_cart(command)
-                cart += price
-                print("   You added Soil to your cart, total is:"   , cart)
-
-            elif command == "G3":
-                price = garden_items["G3"][1]
-                Home.add_cart(command)
-                cart =+ price
-                print("   You added Tools to your cart, total is:"   , cart)
             break
 
         except ValueError:
