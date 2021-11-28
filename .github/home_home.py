@@ -13,12 +13,11 @@ class Home:
     # basket class
     shopping_cart = []
 
-    #__slots__ = ["garden", "indoor", "bathroom"]
+    __slots__ = ["category"]
 
-    #def __init__(self, garden, indoor, bathroom):
-        #self.garden = garden
-        #self.bathroom = bathroom
-        #self.indoor = indoor
+    def __init__(self, category):
+        self.category = category
+
 
     def add_cart(item):
         shopping_cart = []
@@ -58,6 +57,7 @@ def invoice_cart():
         print("          ----------Invoice----------          ")
 
 
+
 def main():
     #Home()
 
@@ -72,6 +72,9 @@ def main():
     command = input()
     cart = 0
     item_list = []
+    counter = 0
+    total_price = 0
+    amount = []
 
     if command != "n":
         while command != "n":
@@ -83,19 +86,30 @@ def main():
                 elif command in garden_items:
                     if command == "G1":
                         g1 = garden_items.get("G1", [1])
-                        item_list.append(g1[0])
-                        print("   You added Garden Hose to your cart, total is:"   ,)
-                        break
+                        item_list.append("Garden Hose")
+                        amount.append(15)
+                        counter = counter + 1
+                        total_price = total_price + 15
+                        print("   You added Garden Hose to your cart, total is:"   ,amount)
+                        main()
 
                     if command == "G2":
                         g2 = garden_items.get("G2", [1])
                         item_list.append(g2[0])
-                        print("   You added Soil to your cart, total is:"   , cart)
+                        amount.append(g2[1])
+                        counter = counter + 1
+                        total_price = total_price + 5
+                        print("   You added Soil to your cart, total is:"   , amount)
+                        main()
 
                     if command == "G3":
                         g3 = garden_items.get("G3", [2])
                         item_list.append(g3[0])
-                        print("   You added Tools to your cart, total is:"   , cart)
+                        amount.append(g3[1])
+                        counter = counter + 1
+                        total_price = total_price + 10
+                        print("   You added Tools to your cart, total is:"   , amount)
+                        main()
 
                 break
 
@@ -141,20 +155,21 @@ def main():
 
                     elif command == "B3":
                         b3 = bathroom_items.get("B3", [1])
-                        print("   You added Bathroom Curtain to your cart, total is:"   , cart)
+                        print("   You added Bathroom Curtain to your cart, total is:"   , amount)
 
                 break
             except ValueError:
                 print("Item not found")
-                continue
-        main()
 
-    elif command == "X":
+    if command == "X":
         print("Done")
         print(item_list)
+        print(amount)
+        print(total_price)
 
 
 if __name__ == '__main__':
     print("Welcome to Home Ideas Center, where all orders include a new home feeling!")
     print("For your new Home space ...")
     main()
+
