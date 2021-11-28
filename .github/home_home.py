@@ -1,12 +1,24 @@
 
 class Home_category:
     # a class that identifies the item's state
-    __slots__ = ["name", "letter_code", "price"]
+    __slots__ = ["__name", "__letter_code", "__price"]
 
     def __init__(self, name, letter_code, price):
-      self.name = name
-      self.letter_code = letter_code
-      self.price = price
+      self.__name = name
+      self.__letter_code = letter_code
+      self.__price = int(price)
+
+    def get_name(self):
+        return self.__name
+
+    def get_letter_code(self):
+        return self.__letter_code
+
+    def get_price(self):
+        return self.__price
+
+    def set_price(self, price):
+        self.__price = price
 
 
 class Home:
@@ -65,12 +77,11 @@ def main():
     indoor_items = {"I1": ("Couch", 250), "I2": ("Rug", 85), "I3": ("Table", 170)}
     bathroom_items = {"B1": ("Bathroom Mirror",50), "B2": ("Bathroom Rug", 20), "B3": ("Bathroom Curtain", 10)}
 
-    print("Choose a letter to display option for each category, or Input the code for your wanted item")
-    print("     G for Garden Items   ", "   I for Indoor Items   ",   "B for Bathroom Items    ")
+    print("Choose 0 to display the options for each category, or Input the code for your wanted item")
     print("----Enter X to Exit and Receive Invoice---")
 
     command = input()
-    cart = 0
+    cart = 50
     item_list = []
     counter = 0
     total_price = 0
@@ -78,12 +89,17 @@ def main():
 
     if command != "n":
         while command != "n":
-            try:
-                if command == "G":
-                    print_garden()
-                    break
+            if command == "0":
+                print_garden()
+                print_indoor()
+                print_bathroom()
+            break
 
-                elif command in garden_items:
+        main()
+
+        while command != "n":
+            try:
+                if command in garden_items:
                     if command == "G1":
                         g1 = garden_items.get("G1", [1])
                         item_list.append("Garden Hose")
@@ -91,7 +107,7 @@ def main():
                         counter = counter + 1
                         total_price = total_price + 15
                         print("   You added Garden Hose to your cart, total is:"   ,amount)
-                        main()
+                    main()
 
                     if command == "G2":
                         g2 = garden_items.get("G2", [1])
@@ -119,10 +135,7 @@ def main():
 
         while command != "n":
             try:
-                if command == "I":
-                    print(print_indoor())
-
-                elif command in indoor_items:
+                if command in indoor_items:
                     if command == "I1":
                         i1 = indoor_items.get("I1", [1])
                         print("   You added Couch to your cart, total is:"   , cart)
@@ -141,10 +154,7 @@ def main():
 
         while command != "n":
             try:
-                if command == "B":
-                    print(print_bathroom())
-
-                elif command in bathroom_items:
+                if command in bathroom_items:
                     if command == "B1":
                         b1 = bathroom_items.get("B1", [1])
                         print("   You added Bathroom Mirror to your cart, total is:"   , cart)
@@ -161,11 +171,12 @@ def main():
             except ValueError:
                 print("Item not found")
 
-    if command == "X":
-        print("Done")
-        print(item_list)
-        print(amount)
-        print(total_price)
+        while command !="n":
+            if command =="X":
+                print("Done")
+                print(item_list)
+                print(amount)
+                print(total_price)
 
 
 if __name__ == '__main__':
