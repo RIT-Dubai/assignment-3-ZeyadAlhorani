@@ -50,10 +50,6 @@ def invoice_cart():
 
         print("          ----------Invoice----------          ")
 
-def basket(item):
-    baskets = []
-    baskets.append(item)
-
 
 def main():
     garden_items = {"G1": ("Garden Hose", 15), "G2": ("Soil", 5), "G3": ("Tools", 30)}
@@ -66,9 +62,8 @@ def main():
     command = input()
     cart = 50
     H = Home
-    counter = 0
-    total_price = 0
     amount = []
+
     if command == "0":
         print_garden()
         print_indoor()
@@ -81,23 +76,24 @@ def main():
                 if command == "G1":
                     amount.append(Home("Garden Hose"))
                     cart += 15
-                    print("   You added an item to your cart")
+                    print("   You added Garden Hose to your cart")
                     main()
 
                 elif command == "G2":
                     amount.append(Home("Soil"))
                     cart += 5
-                    print("   You added an item to your cart")
+                    print("   You added Soil to your cart")
                     main()
 
                 elif command == "G3":
                     amount.append(Home("Tools"))
                     cart += 30
-                    print("   You added an item to your cart")
+                    print("   You added Tools to your cart")
                     main()
 
-                elif command == "X":
-                    break
+            elif command == "X":
+                break
+
             break
 
         while command != "n":
@@ -107,23 +103,23 @@ def main():
                 if command == "I1":
                     amount.append(Home("Couch"))
                     cart += 250
-                    print("   You added an item to your cart")
+                    print("   You added Couch to your cart")
                     main()
 
                 elif command == "I2":
                     amount.append(Home("Rug"))
                     cart += 85
-                    print("   You added an item to your cart")
+                    print("   You added Rug to your cart")
                     main()
 
                 elif command == "I3":
                     amount.append(Home("Table"))
                     cart += 170
-                    print("   You added an item to your cart")
+                    print("   You added Table to your cart")
                     main()
 
-                elif command == "X":
-                    break
+            elif command == "X":
+                 break
             break
 
         while command != "n":
@@ -132,27 +128,28 @@ def main():
                 if command == "B1":
                     amount.append(Home("Bathroom Mirror"))
                     cart += 50
-                    print("   You added an item to your cart")
+                    print("   You added Bathroom Mirror to your cart")
                     main()
 
                 elif command == "B2":
                     amount.append(Home("Bathroom Rug"))
                     cart += 20
-                    print("   You added an item to your cart")
+                    print("   You added Bathroom Rug to your cart")
                     main()
 
                 elif command == "B3":
                     amount.append(Home("Bathroom Curtain"))
                     cart += 10
-                    print("   You added an item to your cart")
+                    print("   You added Bathroom Curtain to your cart")
                     main()
 
-                elif command == "X":
-                    break
+            elif command == "X":
+                 break
             break
 
     for an_item in amount:
         an_item.print_items()
+        print(cart)
 
 
 if __name__ == '__main__':
