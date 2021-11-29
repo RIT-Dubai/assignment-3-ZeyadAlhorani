@@ -95,6 +95,9 @@ def main():
                     cart += 30
                     print("   You added an item to your cart")
                     main()
+
+                elif command == "X":
+                    break
             break
 
         while command != "n":
@@ -118,6 +121,9 @@ def main():
                     cart += 170
                     print("   You added an item to your cart")
                     main()
+
+                elif command == "X":
+                    break
             break
 
         while command != "n":
@@ -140,13 +146,13 @@ def main():
                     cart += 10
                     print("   You added an item to your cart")
                     main()
-                break
+
+                elif command == "X":
+                    break
             break
-    else:
-        if command == "X":
-          print("Done")
-        for obj in amount:
-            obj.print_items()
+
+    for an_item in amount:
+        an_item.print_items()
 
 
 if __name__ == '__main__':
