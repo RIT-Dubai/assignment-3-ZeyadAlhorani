@@ -1,17 +1,30 @@
+
 import home_home as H
 
 
-class test_home():
-    home_item1 = H.Home("Garden Hose", "G1", 10)
-    assert home_item1.name == "Garden Hose"
-    assert home_item1.letter_code == "G1"
-    assert home_item1.price == 10
+class testing():
+    def assertEqual(self):
+        return
+    def test_init(self, name, letter_code, price):
+        self.assertEqual(name)
+        self.assertEqual(price)
+        self.assertEqual(letter_code)
+
+    def test_Home(self):
+        list1 = []
+        list1.append(2)
+
+        list2 = []
+        list2.append("x")
+        def test_init(self,item):
+            assert item == item
+        def test_print_items(self,item):
+            self.assertEqual(list1[0],2)
+        def test_add(self,i):
+            self.assertEqual(list2[0], "x")
+        def test_get_basket(self):
+            self.assertEqual(test_get_basket(self))
 
 
-
-def test_main():
-    H.main()
-    command = input()
-    assert command == "G"
-
-test_home()
+if __name__ == '__main__':
+    testing()

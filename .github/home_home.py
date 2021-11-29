@@ -13,8 +13,8 @@ class Home(object):
     # basket class
     basket = []
 
-    def _init_(self,item_list):
-        self.item_list = item_list
+    def _init_(self,item):
+        self.item = item
 
     def print_items(self, item):
         self.basket.append(str(item))
@@ -52,6 +52,7 @@ def print_bathroom():
 
 def main():
 
+    # printing the introduction of the program
     print("Welcome to Home Ideas Center, where all orders include a new home feeling!")
     print("For your new Home space ...")
     garden_items = {"G1": ("Garden Hose", 15), "G2": ("Soil", 5), "G3": ("Tools", 30)}
@@ -60,13 +61,14 @@ def main():
 
     print("Choose 0 to display the options for the garden category, or Input the code for your wanted item, enter n for next category")
     print("----Enter X to Exit and Receive Invoice---")
-
+    # important variables
     command = input()
     cart = 50
     H = Home()
     user = Home()
     amount = []
     while command != 'n':
+        # 1st while loop for garden
         if command == "0":
             print_garden()
 
@@ -110,6 +112,7 @@ def main():
     command = input()
 
     while command != "n":
+        # 2nd while loop for indoor items
         if command == '0':
             print_indoor()
 
@@ -149,6 +152,7 @@ def main():
     print("----Enter X to Exit and Receive Invoice---")
     command = input()
     while command != "n":
+        # 3rd while loop for bathroom items
         if command == '0':
             print_bathroom()
 
@@ -178,14 +182,15 @@ def main():
             break
 
         else:
+            #if something went wrong
             print("Input is not valid")
 
         print("Choose 0 to display the options for the bathroom category, or Input the code for your wanted item, enter n for exit")
         print("----Enter X to Exit and Receive Invoice---")
         command = input()
 
-
     for an_item in amount:
+        # printing the invoice
         print("------------------------------------------------------------------Invoice------------------------------------------------------------------")
         print("                                                      #Thank You For Using Our Website#    ")
         print("Items in cart:", user.get_basket())
